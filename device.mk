@@ -1,5 +1,6 @@
 #
-# Copyright (C) 2011 The CyanogenMod Project
+# Copyright (C) 2012 The CyanogenMod Project
+# Copyright (C) 2012 The LiquidSmooth Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,15 +15,14 @@
 # limitations under the License.
 #
 
-## (2) Also get non-open-source specific aspects if available
-$(call inherit-product-if-exists, vendor/samsung/d2mtr/d2mtr-vendor.mk)
-
-## overlays
+# overlay
 DEVICE_PACKAGE_OVERLAYS += device/samsung/d2mtr/overlay
-## common overlays
-DEVICE_PACKAGE_OVERLAYS += device/samsung/d2-common/overlay-cdma
 
-# Inherit from d2-common
+# common
 $(call inherit-product, device/samsung/d2-common/d2-common.mk)
 
-$(call inherit-product-if-exists, vendor/samsung/d2mtr/d2mtr-vendor.mk)
+# telephony
+DEVICE_PACKAGE_OVERLAYS += device/samsung/d2-common/overlay-cdma
+
+# vendor
+$(call inherit-product-if-exists, vendor/samsung/d2r530/d2r530-vendor.mk)
